@@ -1,1 +1,89 @@
-<p>login works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+        <h2>Registration Form</h2>
+        <div class="form-container">
+            <form action="">
+                <div class="input-name">
+                    <input type="text" placeholder="First Name" class="name" name="Fname">
+                    <span>
+                        <input type="text" placeholder="Last Name" class="name" name="lname">
+                    </span>
+                </div>
+                <div class="input-name">
+                    <input type="email" placeholder="Email" required class="text-name" name="email">
+                </div>
+                <div class="input-name">
+                    <input type="password" placeholder="Password" class="text-name" required name="password">
+                </div>
+                <div class="input-name">
+                    <input type="text" placeholder="username" class="text-name" name="uname">
+                </div>
+                <div class="input-name">
+                    <input type="number" placeholder="Mobile" class="text-name" name="mobile">
+                </div>
+                <div class="input-name">
+                    <input type="number" placeholder="Register Number" class="text-name" name="registerno">
+                </div>
+                <div class="input-name">
+                    <input type="button" type="submit" value="Register" class="button">
+                </div>
+            </form>
+        </div>
+    </div>    
+</body>
+
+<script>
+    const mysql = require('mysql2');
+    const express = require('express');
+    var app = express();
+    const parser = require('body-parser');
+    app.use(parser.json());
+    app.use(express.urlencoded());
+    app.use(express.static('public'));
+
+    var connection = mysql.createConnection({
+        host:'localhost',
+        user:'root',
+        password:'Aditya@2000',
+        database:'christmart'
+    });
+
+    connection.connect((err)=>{
+        if(!err)
+        console.log("Your database is connected successfully....");
+        else
+        console.log("Error in connecting to the database");
+    });
+
+    app.listen(4200,()=>console.log('Server Started...'));
+     app.get('/home',(req,res)=>
+     {
+         res.sendFile(__dirname +'/home.component.html');
+
+     });
+
+     app.post('/submit',(req,res)=>
+    {
+        console.log("hy");
+        console.log(req.body);
+        var sql="insert into users";
+        var data=req.body;
+        var  query=connection.query(sql,data,(err,result)=>
+        {
+            if(err) throw error;
+            res.send("Inserted rows....");
+        });
+    })
+
+
+
+</script>
+</html>
