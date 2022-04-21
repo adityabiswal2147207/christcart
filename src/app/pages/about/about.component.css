@@ -1,0 +1,26 @@
+.about{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.about__title{
+    text-decoration: underline;
+    background-color: rgb(6, 237, 52);
+     border: 1px solid;
+     border-radius: 3px;
+}
+
+.about__info{
+    justify-content: center;
+    display: flex;
+    background-color: aliceblue;
+    color: brown;
+}
+
+.about__para{
+    font-family: 'Square Peg', cursive;
+    font-size: 5vh;
+    font-weight: bolder;
+}
