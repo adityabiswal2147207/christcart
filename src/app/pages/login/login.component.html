@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="regcon.js"></script>
 </head>
 <body>
     <div class="wrapper">
@@ -39,51 +40,4 @@
         </div>
     </div>    
 </body>
-
-<script>
-    const mysql = require('mysql2');
-    const express = require('express');
-    var app = express();
-    const parser = require('body-parser');
-    app.use(parser.json());
-    app.use(express.urlencoded());
-    app.use(express.static('public'));
-
-    var connection = mysql.createConnection({
-        host:'localhost',
-        user:'root',
-        password:'Aditya@2000',
-        database:'christmart'
-    });
-
-    connection.connect((err)=>{
-        if(!err)
-        console.log("Your database is connected successfully....");
-        else
-        console.log("Error in connecting to the database");
-    });
-
-    app.listen(4200,()=>console.log('Server Started...'));
-     app.get('/home',(req,res)=>
-     {
-         res.sendFile(__dirname +'/home.component.html');
-
-     });
-
-     app.post('/submit',(req,res)=>
-    {
-        console.log("hy");
-        console.log(req.body);
-        var sql="insert into users";
-        var data=req.body;
-        var  query=connection.query(sql,data,(err,result)=>
-        {
-            if(err) throw error;
-            res.send("Inserted rows....");
-        });
-    })
-
-
-
-</script>
 </html>
