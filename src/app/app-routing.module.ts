@@ -7,6 +7,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { PlansComponent } from './pages/plans/plans.component';
 import { RechargeComponent } from './pages/recharge/recharge.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { AdminComponent } from './pages/admin/admin.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path:'plans',component:PlansComponent},
   {path:'login',component:LoginComponent},
   {path:'recharge',component:RechargeComponent},
-  {path:'register',component:RegisterComponent}
+  {path:'register',component:RegisterComponent},
+  {path:'admin',component:AdminComponent}
 ];
 
 @NgModule({

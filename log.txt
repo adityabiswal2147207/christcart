@@ -1,1 +1,3 @@
 This log is to record all the terminal commands that i've executed
+
+ng g c pages/admin
