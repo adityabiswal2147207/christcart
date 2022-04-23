@@ -12,6 +12,7 @@ import { RechargeComponent } from './pages/recharge/recharge.component';
 import { NavbarComponent } from './sharepage/navbar/navbar.component';
 import { FooterComponent } from './sharepage/footer/footer.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { AdminComponent } from './pages/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { RegisterComponent } from './pages/register/register.component';
     RechargeComponent,
     NavbarComponent,
     FooterComponent,
-    RegisterComponent
+    RegisterComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
